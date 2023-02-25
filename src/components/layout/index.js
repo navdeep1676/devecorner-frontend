@@ -1,9 +1,10 @@
 import { Layout, Menu, theme } from "antd";
-import { Link, Outlet } from "react-router-dom";
-import { AiFillInstagram, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 
 const { Header, Content, Footer } = Layout;
 export const MainLayout = () => {
+  const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -61,6 +62,9 @@ export const MainLayout = () => {
           mode="horizontal"
           defaultSelectedKeys={["1"]}
           items={menuItems}
+          onClick={({ key }) => {
+            navigate(key);
+          }}
         />
       </Header>
       <Content
