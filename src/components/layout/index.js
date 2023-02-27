@@ -45,11 +45,11 @@ export const MainLayout = () => {
   return (
     <Layout className="layout">
       <Header className="d-flex justify-content-between fixed-top w-100">
-        <div className="logo py-2">
+        <div className="logo py-1">
           <Link className="text-decoration-none fw-bold d-flex gap-3 align-items-center">
-            <img src="/logo.png" width={50} alt="" />{" "}
+            <img src="/logo.png" width={45} alt="" />{" "}
             <span
-              className="fs-3 d-none d-xxl-block"
+              className="fs-4 d-none d-xxl-block"
               style={{ color: "rgb(245, 141, 28)" }}
             >
               Developer's Corner
@@ -58,7 +58,7 @@ export const MainLayout = () => {
         </div>
         <Menu
           theme="dark"
-          className="py-2 flex-grow-1 fs-5 justify-content-end"
+          className="py-0 flex-grow-1 fs-6 justify-content-end"
           mode="horizontal"
           defaultSelectedKeys={["1"]}
           items={menuItems}
