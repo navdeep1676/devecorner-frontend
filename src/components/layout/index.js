@@ -1,13 +1,10 @@
-import { Layout, Menu, theme } from "antd";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
-
-const { Header, Content, Footer } = Layout;
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { useState } from "react";
 export const MainLayout = () => {
-  const navigate = useNavigate();
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
   const menuItems = [
     {
       key: "/",
@@ -42,46 +39,84 @@ export const MainLayout = () => {
       label: "Contact Us",
     },
   ];
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <Layout className="layout">
-      <Header className="d-flex justify-content-between fixed-top w-100">
-        <div className="logo py-1">
-          <Link className="text-decoration-none fw-bold d-flex gap-3 align-items-center">
-            <img src="/logo.png" width={45} alt="" />{" "}
-            <span
-              className="fs-4 d-none d-xxl-block"
-              style={{ color: "rgb(245, 141, 28)" }}
-            >
-              Developer's Corner
-            </span>
-          </Link>
-        </div>
-        <Menu
-          theme="dark"
-          className="py-0 flex-grow-1 fs-6 justify-content-end"
-          mode="horizontal"
-          defaultSelectedKeys={["1"]}
-          items={menuItems}
-          onClick={({ key }) => {
-            navigate(key);
-          }}
-        />
-      </Header>
-      <Content
-        style={{
-          padding: "150px 70px",
-        }}
+    <>
+      <Navbar
+        collapseOnSelect
+        sticky="top"
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="py-0"
       >
+        <Container fluid={"xxl"}>
+          <Navbar.Brand href="#home" className="mx-0">
+            <div className="logo py-1">
+              <Link className="text-decoration-none fw-bold d-flex mx-0 gap-3 align-items-center">
+                <img src="/logo.png" width={45} alt="" />{" "}
+                <span
+                  className="fs-4 d-none d-xxl-block"
+                  style={{ color: "rgb(245, 141, 28)" }}
+                >
+                  Developer's Corner
+                </span>
+              </Link>
+            </div>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse
+            className="justify-content-end"
+            id="responsive-navbar-nav"
+          >
+            <Nav>
+              {menuItems?.map((item, index) => {
+                return (
+                  <Nav.Link
+                    className="px-0"
+                    as={Link}
+                    to={item.key}
+                    key={index}
+                    eventKey={index}
+                  >
+                    {item.label}
+                  </Nav.Link>
+                );
+              })}
+            </Nav>
+            <Nav>
+              <NavLink
+                style={{ paddingTop: "3px", paddingBottom: "3px" }}
+                className="button  px-4"
+                href="#deets"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                style={{ paddingTop: "3px", paddingBottom: "3px" }}
+                className="button  px-4"
+                href="#memes"
+              >
+                SignUp
+              </NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <div style={{ marginTop: "50px" }}>
         <Outlet />
-      </Content>
-      <Footer
+      </div>
+      <footer
+        className="container-xxl py-3"
         style={{
           textAlign: "center",
         }}
       >
-        <div className="d-flex flex-wrap justify-content-between align-items-center">
+        <div className="d-flex flex-wrap justify-content-center gap-3 justify-content-md-between align-items-center">
           <p className="fs-5 mb-0"> ©2023 Created by Developer's Corner</p>
-          <div className="social-media-icons d-flex gap-4 align-items-center">
+          <div className="social-media-icons d-flex gap-4 mb-3 mb-sm-0 align-items-center">
             <a
               href="https://www.instagram.com/heartblack1676/"
               target={"_blank"}
@@ -106,7 +141,7 @@ export const MainLayout = () => {
             </a>
           </div>
         </div>
-      </Footer>
-    </Layout>
+      </footer>
+    </>
   );
 };

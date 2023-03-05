@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <>
       <section className="home-wrapper-1">
-        <div className="container-fluid">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-12 col-xl-6">
               <h1 className="heading mb-3">
@@ -45,10 +45,11 @@ export const Home = () => {
                 />
               </h1>
               <p className="mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                est accusantium! Reiciendis optio inventore qui odio dolor
-                perspiciatis eveniet pariatur ut vel reprehenderit! Nihil quo
-                rem nisi esse numquam blanditiis.
+                Hi there, I’m Navdeep. I have taken all that I have learned
+                working as a Front End Developer and now dedicate 100% of my
+                time to educating other's valuable software development skills
+                and helping them break into the tech industry, continue to level
+                up their skills, and advance their careers.
               </p>
               <a
                 className="button mt-4"
@@ -71,7 +72,7 @@ export const Home = () => {
         </div>
       </section>
       <section className="home-wrapper-2 py-5 mt-5">
-        <div className="container-fluid">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <h1 className="heading mb-4 text-center">
@@ -86,7 +87,7 @@ export const Home = () => {
         </div>
       </section>
       <section className="home-wrapper-3 py-5 mt-0 mt-md-5">
-        <div className="container-fluid">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <h1 className="heading mb-4 text-center">
@@ -101,7 +102,7 @@ export const Home = () => {
         </div>
       </section>
       <section className="home-wrapper-4 py-5 mt-0 mt-md-5">
-        <div className="container-fluid">
+        <div className="container-xxl">
           <div className="row">
             <div className="col-12">
               <h1 className="heading mb-4 text-center">
@@ -115,10 +116,12 @@ export const Home = () => {
               <Carousel>
                 {reviews?.map((item, index) => {
                   return (
-                    <Carousel.Item interval={1000}>
+                    <Carousel.Item interval={1000} key={index}>
                       <Carousel.Caption className="text-black position-static">
                         <h3 className="heading fs-3 fw-bold">{item?.name}</h3>
-                        <p className="fs-4 px-5">{item?.review}</p>
+                        <p className="fs-5 px-1 px-sm-2 px-md-5">
+                          {item?.review}
+                        </p>
                       </Carousel.Caption>
                     </Carousel.Item>
                   );

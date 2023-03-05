@@ -7,7 +7,7 @@ import { AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 export const Contact = () => {
   return (
     <section className="contact-wrapper-1 py-5 pt-0">
-      <div className="container-fluid">
+      <div className="container-xxl">
         <div className="row">
           <div className="col-12">
             <h1 className="heading mb-4 text-center">
@@ -16,7 +16,7 @@ export const Contact = () => {
             </h1>
           </div>
         </div>
-        <div className="row mt-5">
+        <div className="row pt-4">
           <div className="col-12 col-lg-6">
             <div className="address card h-100 p-3">
               <div className="social-media-icons d-flex gap-4 justify-content-center mt-5 align-items-center">

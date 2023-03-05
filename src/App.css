@@ -1,11 +1,11 @@
-.ant-layout-header {
+.navbar {
   height: auto !important;
   background-color: #2e213f !important;
-  padding-inline: 70px !important;
 }
-.ant-menu {
-  background-color: #2e213f !important;
+.navbar a {
+  text-decoration: none;
   color: white;
+  margin: 0px 15px;
 }
 .site-layout-content {
   min-height: 280px;
@@ -118,13 +118,34 @@
     width: 100% !important;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .ant-layout-content {
-    padding: 150px 15px 50px !important;
+@media screen and (max-width: 992px) {
+  .navbar .button {
+    display: inline-block !important;
+    margin-top: 15px;
+    text-align: center;
   }
-  .ant-layout-header {
-    padding-inline: 15px !important;
+  .navbar-toggler {
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .heading .index-module_type__E-SaG {
+    font-size: 24px !important;
+    line-height: 35px;
+  }
+  .navbar-nav a {
+    margin-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dev-back img {
+    width: 100%;
+    transform: none !important;
+  }
+  .dev-back {
+    transform: none !important;
   }
 }
 .ant-menu-item {

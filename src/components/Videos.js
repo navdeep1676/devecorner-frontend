@@ -4,7 +4,7 @@ import { CustomCard } from "./comman/CustomCard";
 export const Videos = () => {
   return (
     <section className="video-wrapper-1 py-5 pt-0">
-      <div className="container-fluid">
+      <div className="container-xxl">
         <div className="row">
           <div className="col-12">
             <h1 className="heading mb-4 text-center">
@@ -13,7 +13,7 @@ export const Videos = () => {
             </h1>
           </div>
         </div>
-        <div className="row mt-5">
+        <div className="row  pt-4">
           <CustomCard data={videos} />;
         </div>
       </div>

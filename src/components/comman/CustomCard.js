@@ -6,7 +6,7 @@ export const CustomCard = (props) => {
     <>
       {data?.map((item, index) => {
         return (
-          <div className="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0">
+          <div key={index} className="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0">
             <Card style={{ width: "100%" }}>
               <Card.Img variant="top" src={item.image} />
               <Card.Body>

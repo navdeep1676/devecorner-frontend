@@ -6,7 +6,7 @@ export const CustomSkillCard = (props) => {
     <>
       {data?.map((item, index) => {
         return (
-          <div className="col-3" key={index}>
+          <div className="col-12 col-sm-6 col-lg-3 mt-sm-5 " key={index}>
             <div
               className="skill-card"
               style={{ borderBottom: `2px solid ${item?.color}` }}
