@@ -16,9 +16,16 @@ jobs:
     
     - name: Install Depencdencie
       run: npm install
-    
+      
+    - name: Create Build
+      run: npm run build
+      
+    - name: Copy Files
+      run: rsync -a /root/actions-runner-frontend/_work/devecorner-frontend/devecorner-frontend/build/ /var/www/mydc/build/   
 
-   
+    - name: Give Permission
+      run: chmod -R 775 /var/www/mydc/build/
+      
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
