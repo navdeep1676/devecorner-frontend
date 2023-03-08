@@ -14,6 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: Install Depencdencie
+      run: npm install
+    
 
    
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
