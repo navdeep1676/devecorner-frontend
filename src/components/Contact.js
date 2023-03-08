@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInput } from "./comman/CustomInput";
-import { AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import { AppContext } from "../helpers/app-context";
+
+let contactSchema = yup.object({
+  name: yup.string().required("Your Name is Required."),
+  mobile: yup.string().required("Mobile No is Required."),
+  email: yup
+    .string()
+    .email("Email Address should be Valid.")
+    .required("Email Address is Required."),
+  subject: yup.string().required("Subject is Required."),
+  message: yup.string().required("Message is Required."),
+});
 
 export const Contact = () => {
+  const ctx = useContext(AppContext);
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      mobile: "",
+      subject: "",
+      message: "",
+    },
+    validationSchema: contactSchema,
+    onSubmit: async (values) => {
+      const res = await ctx.HttpPost("contact/post", values);
+      if (res.status === true) {
+        ctx.setModalData({
+          icon: "",
+          showModal: true,
+          titleText: "Contact",
+          messageText: res.msg,
+          secondaryBtnClassName: "btn-primary",
+          secondaryBtnText: "Done",
+          type: "success",
+        });
+      } else {
+        ctx.setModalData({
+          icon: "",
+          showModal: true,
+          titleText: "Error",
+          messageText: res.msg,
+          secondaryBtnClassName: "btn-primary",
+          secondaryBtnText: "Done",
+          type: "error",
+        });
+      }
+      formik.resetForm();
+    },
+  });
   return (
     <section className="contact-wrapper-1 py-5 pt-0">
       <div className="container-xxl">
@@ -73,36 +123,61 @@ export const Contact = () => {
           </div>
           <div className="col-12 col-lg-6">
             <div className="contact-wrapper card p-3">
-              <Form>
+              <Form onSubmit={formik.handleSubmit}>
                 <CustomInput
                   type="text"
                   label="Your Name"
                   id="name"
+                  name="name"
                   placeholder="Enter Name"
+                  onChange={formik.handleChange("name")}
+                  onBlur={formik.handleBlur("name")}
+                  value={formik.values.name}
+                  error={formik.touched.name && formik.errors.name}
                 />
                 <CustomInput
                   label="Email Address"
                   type="email"
                   id="email"
                   placeholder="Enter Email Address"
+                  name="email"
+                  onChange={formik.handleChange("email")}
+                  onBlur={formik.handleBlur("email")}
+                  value={formik.values.email}
+                  error={formik.touched.email && formik.errors.email}
                 />
                 <CustomInput
                   type="tel"
                   label="Mobile Number"
                   id="mobile"
                   placeholder="Mobile"
+                  name="mobile"
+                  onChange={formik.handleChange("mobile")}
+                  onBlur={formik.handleBlur("mobile")}
+                  value={formik.values.mobile}
+                  error={formik.touched.mobile && formik.errors.mobile}
                 />
                 <CustomInput
                   type="text"
                   label="Subject"
                   id="subject"
                   placeholder="Subject"
+                  name="subject"
+                  onChange={formik.handleChange("subject")}
+                  onBlur={formik.handleBlur("subject")}
+                  value={formik.values.subject}
+                  error={formik.touched.subject && formik.errors.subject}
                 />
                 <CustomInput
                   label="Message"
                   astype="textarea"
                   placeholder="Leave a comment here"
                   style={{ height: "100px" }}
+                  name="message"
+                  onChange={formik.handleChange("message")}
+                  onBlur={formik.handleBlur("message")}
+                  value={formik.values.message}
+                  error={formik.touched.message && formik.errors.message}
                 />
 
                 <Button className="button py-2 px-5" type="submit">

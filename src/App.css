@@ -36,11 +36,12 @@
   border: 1px solid transparent;
   border-radius: 11px;
   display: inline-block;
+  height: auto !important;
 }
 .button:hover {
-  background-color: white;
-  border: 1px solid rgb(245, 141, 28);
-  color: rgb(245, 141, 28);
+  background-color: white !important;
+  border: 1px solid rgb(245, 141, 28) !important;
+  color: rgb(245, 141, 28) !important;
 }
 
 /* home wrapper 1 */
@@ -157,4 +158,15 @@
   > .ant-menu-submenu-selected {
   color: #fff;
   background-color: rgb(245, 141, 28);
+}
+
+.ant-modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  flex-grow: 1;
+}
+.ant-modal-body img {
+  width: auto;
 }

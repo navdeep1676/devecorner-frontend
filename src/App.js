@@ -12,7 +12,6 @@ import { AdminLayout } from "./components/admin/layout";
 import { Dashboard } from "./components/admin/Dashboard";
 import { VideoList } from "./components/admin/VideoList";
 import { AddVideo } from "./components/admin/AddVideo";
-
 function App() {
   return (
     <>

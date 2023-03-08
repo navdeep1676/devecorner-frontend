@@ -16,11 +16,10 @@ export const CustomInput = (props) => {
     type,
   } = props;
   return (
-    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Group className="mb-3" controlId={id}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
         as={astype !== "" ? astype : ""}
-        id={id}
         type={type}
         name={name}
         onChange={onChange}
@@ -28,7 +27,7 @@ export const CustomInput = (props) => {
         placeholder={placeholder}
         value={value}
       />
-      <Form.Text className="text-muted">{error ? error : ""}</Form.Text>
+      <Form.Text className="text-danger">{error ? error : ""}</Form.Text>
     </Form.Group>
   );
 };

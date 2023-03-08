@@ -17,7 +17,7 @@ export const Home = () => {
                 <span style={{ color: "#000" }}>Welcome To </span>{" "}
                 <br className="d-none d-xl-block" />
                 <span style={{ color: "rgb(245, 141, 28)" }}>
-                  Developer's Corner
+                  My Developer's Corner
                 </span>
               </h1>
               <h1 className="d-flex heading gap-3">
