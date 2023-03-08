@@ -26,6 +26,7 @@ function App() {
             <Route path="/problems" element={<Problems />} />
             <Route path="/tutorials" element={<NoData />} />
             <Route path="/howto" element={<NoData />} />
+            <Route path="*" element={<NoData />} />
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
