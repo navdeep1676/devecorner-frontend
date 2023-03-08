@@ -17,8 +17,8 @@ jobs:
     - name: Install Depencdencie
       run: npm install
       
-    - name: Create Build
-      run: npm run build
+      #- name: Create Build
+      #run: npm run build
       
     - name: Copy Files
       run: rsync -a /root/actions-runner-frontend/_work/devecorner-frontend/devecorner-frontend/build/ /var/www/mydc/build/   
