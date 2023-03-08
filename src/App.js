@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./components/layout";
 import { Home } from "./components/Home";
 import { Contact } from "./components/Contact";
@@ -15,7 +15,7 @@ import { AddVideo } from "./components/admin/AddVideo";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" index element={<Home />} />
@@ -33,7 +33,7 @@ function App() {
             <Route path="video/add-video" element={<AddVideo />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
