@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Install Depencdencie
-      run: npm install
+      #- name: Install Depencdencie
+      #run: npm install
       
       #- name: Create Build
       #run: npm run build
