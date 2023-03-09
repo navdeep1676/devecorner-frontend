@@ -14,17 +14,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-      #- name: Install Depencdencie
-      #run: npm install
+    
       
       #- name: Create Build
       #run: npm run build
       
     - name: Copy Files
-      run: rsync -a /root/actions-runner-frontend/_work/devecorner-frontend/devecorner-frontend/build/ /var/www/mydc/build/   
+      run: rsync -a /root/actions-runner-frontend/_work/devecorner-frontend/devecorner-frontend/ /var/www/mydc/   
 
     - name: Give Permission
-      run: chmod -R 775 /var/www/mydc/build/
+      run: chmod -R 775 /var/www/mydc/
+      
+    - name: Install Depencdencie
+      run: npm install --prefix /var/www/mydc
       
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
