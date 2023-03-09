@@ -1,6 +1,6 @@
 RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^.*$ / [L,QSA]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ /index.html [L]
