@@ -15,7 +15,7 @@ import { AddVideo } from "./components/admin/AddVideo";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" index element={<Home />} />
