@@ -45,7 +45,7 @@ export const Home = () => {
                 />
               </h1>
               <p className="mt-3">
-                Hi there, I’m Navdeep Dahiya (SOftware Developer). I have taken
+                Hi there, I’m Navdeep Dahiya (Software Developer). I have taken
                 all that I have learned working as a Front End Developer and now
                 dedicate 100% of my time to educating other's valuable software
                 development skills and helping them break into the tech
