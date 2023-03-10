@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { videos } from "../utils/Data";
 import { CustomCard } from "./comman/CustomCard";
+import { AppContext } from "../helpers/app-context";
 export const Videos = () => {
+  const ctx = useContext(AppContext);
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+  const getVideos = async () => {
+    const result = await ctx.HttpGet("video");
+  };
   return (
     <section className="video-wrapper-1 py-5 pt-0">
       <div className="container-xxl">

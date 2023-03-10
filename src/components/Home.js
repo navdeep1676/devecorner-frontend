@@ -11,7 +11,7 @@ export const Home = () => {
     <>
       <section className="home-wrapper-1">
         <div className="container-xxl">
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col-12 col-xl-6">
               <h1 className="heading mb-3">
                 <span style={{ color: "#000" }}>Welcome To </span>{" "}
@@ -62,11 +62,15 @@ export const Home = () => {
             </div>
             <div className="col-12 mt-5  mt-xl-0  col-xl-6">
               <div className="dev-back">
-                <img
-                  src="/images/myimg.png"
-                  style={{ width: "600px", transform: "rotate(170deg)" }}
-                  alt="myimg"
-                />
+                <iframe
+                  style={{ width: "100%" }}
+                  height="415"
+                  src="https://www.youtube.com/embed/hja_5chBohQ?controls=0"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>

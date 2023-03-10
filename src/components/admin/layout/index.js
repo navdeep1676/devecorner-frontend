@@ -34,7 +34,7 @@ export const AdminLayout = () => {
           mode="inline"
           defaultSelectedKeys={["1"]}
           items={[
-            { key: "Users", icon: <VideoCameraOutlined />, label: "Videos" },
+            { key: "Users", icon: <UserOutlined />, label: "Users" },
             {
               key: "video",
               icon: <VideoCameraOutlined />,

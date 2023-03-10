@@ -56,13 +56,7 @@
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1.525rem;
 }
-.home-wrapper-1 .dev-back {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: unset;
-  background-image: url("/public/images/devback.png");
-  transform: rotate(190deg);
-}
+
 /* home wrapper 1 */
 
 .card-title {
