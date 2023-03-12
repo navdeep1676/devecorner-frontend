@@ -1,10 +1,20 @@
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import { contextType } from "react-quill";
+import { AppContext } from "../../helpers/app-context";
 export const MainLayout = () => {
+  const ctx = useContext(AppContext);
   const menuItems = [
     {
       key: "/",
@@ -40,9 +50,20 @@ export const MainLayout = () => {
     },
   ];
   const [expanded, setExpanded] = useState(false);
+  const [can, setCan] = useState("");
+  const location = useLocation();
+  useEffect(() => {
+    setCan(location.pathname);
+  }, []);
+  console.log(ctx.pageTitle);
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{ctx.pageTitle}</title>
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
       <Navbar
         collapseOnSelect
         sticky="top"
@@ -77,11 +98,12 @@ export const MainLayout = () => {
               {menuItems?.map((item, index) => {
                 return (
                   <Nav.Link
-                    className="px-0"
+                    className="px-0 text-white"
                     as={Link}
                     to={item.key}
                     key={index}
                     eventKey={index}
+                    onClick={() => ctx.setPageTitle(item?.label)}
                   >
                     {item.label}
                   </Nav.Link>

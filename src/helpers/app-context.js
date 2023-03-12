@@ -10,6 +10,7 @@ export const AppProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [teamData, setTeamData] = useState(null);
   const [userType, setUserType] = useState(null);
+  const [pageTitle, setPageTitle] = useState(null);
   const [modalData, setModalData] = useState({
     icon: "",
     showModal: false,
@@ -215,6 +216,8 @@ export const AppProvider = ({ children }) => {
     userType,
     setModalData,
     HttpDelete,
+    pageTitle,
+    setPageTitle,
   };
   const onErrorModalButtonClick = () => {
     setModalData({ ...modalData, showModal: false });
