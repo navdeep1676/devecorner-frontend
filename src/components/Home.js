@@ -16,7 +16,11 @@ export const Home = () => {
   const getVideos = async () => {
     const result = await ctx.HttpGet("video");
     if (result.status === true) {
-      setVideos(result.data);
+      let vids = [];
+      for (let index = 0; index < 3; index++) {
+        vids.push(result?.data[index]);
+      }
+      setVideos(vids);
     }
   };
   return (

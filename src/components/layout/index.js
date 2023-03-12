@@ -54,7 +54,10 @@ export const MainLayout = () => {
         <Container fluid={"xxl"}>
           <Navbar.Brand href="#home" className="mx-0">
             <div className="logo py-1">
-              <Link className="text-decoration-none fw-bold d-flex mx-0 gap-3 align-items-center">
+              <Link
+                to="/"
+                className="text-decoration-none fw-bold d-flex mx-0 gap-3 align-items-center"
+              >
                 <img src="/logo.png" width={45} alt="" />{" "}
                 <span
                   className="fs-4 d-none d-xxl-block"

@@ -20,7 +20,7 @@ export const CustomCard = (props) => {
                 onClick={() => goToPage(item?.slug)}
                 variant="top"
                 className="cursor-pointer"
-                src={item.image.url}
+                src={item?.image?.url}
               />
               <Card.Body>
                 <Card.Title
@@ -28,15 +28,15 @@ export const CustomCard = (props) => {
                   className="text-decoration-none cursor-pointer"
                 >
                   {" "}
-                  {item.title.substr(0, 49) + "..."}
+                  {item?.title.substr(0, 49) + "..."}
                 </Card.Title>
                 <Card.Text
                   onClick={() => goToPage(item?.slug)}
                   className="text-decoration-none cursor-pointer"
                 >
-                  {item.desc.substr(0, 140) + "..."}
+                  {item?.desc.substr(0, 140) + "..."}
                 </Card.Text>
-                <a className="button mt-4" href={item.url} target={"_blank"}>
+                <a className="button mt-4" href={item?.url} target={"_blank"}>
                   Explore Now
                 </a>
               </Card.Body>
