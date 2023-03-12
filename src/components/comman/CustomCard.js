@@ -10,7 +10,7 @@ export const CustomCard = (props) => {
             <Card style={{ width: "100%" }}>
               <Card.Img variant="top" src={item.image.url} />
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
+                <Card.Title>{item.title}</Card.Title>
                 <Card.Text>{item.desc}</Card.Text>
                 <a className="button mt-4" href={item.link} target={"_blank"}>
                   Explore Now
