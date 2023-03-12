@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Checkbox, Form, Input, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-
+import { AppContext } from "../../helpers/app-context";
 export const AddVideo = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const ctx = useContext(AppContext);
+  const onFinish = async (values) => {
+    console.log("Success:", values.upload[0]);
+    let formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("desc", values.desc);
+    formData.append("url", values.url);
+    formData.append("image", values.upload[0].originFileObj);
+    const result = await ctx.HttpPost("video/post", formData);
+    console.log(result);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -35,7 +43,7 @@ export const AddVideo = () => {
           getValueFromEvent={normFile}
           extra="Please Upload JPG or PNG File"
         >
-          <Upload name="logo" action="/upload.do" listType="picture">
+          <Upload name="logo" listType="picture">
             <Button icon={<UploadOutlined />}>Click to upload</Button>
           </Upload>
         </Form.Item>
@@ -66,12 +74,12 @@ export const AddVideo = () => {
         </Form.Item>
 
         <Form.Item
-          name="website"
-          label="Website"
+          name="url"
+          label="Video Url"
           rules={[
             {
               required: true,
-              message: "Please input website!",
+              message: "Please input Video Url!",
             },
           ]}
         >
