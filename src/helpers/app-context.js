@@ -74,6 +74,19 @@ export const AppProvider = ({ children }) => {
     }
     return false;
   };
+  const HttpDelete = async (aFunction, aPayload, aShowLoader = true) => {
+    try {
+      // if (aShowLoader) setShowSpinner(true);
+      await getAccessToken();
+
+      return await HttpHelper.HttpDelete(aFunction, aPayload);
+    } catch (e) {
+      // ErrorHandler(e, true)
+    } finally {
+      // if (aShowLoader) setShowSpinner(false);
+    }
+    return false;
+  };
 
   const AppLogin = async (data, aAccessToken) => {
     await SetHttpContext(data, aAccessToken);
@@ -201,6 +214,7 @@ export const AppProvider = ({ children }) => {
     getTeamData,
     userType,
     setModalData,
+    HttpDelete,
   };
   const onErrorModalButtonClick = () => {
     setModalData({ ...modalData, showModal: false });

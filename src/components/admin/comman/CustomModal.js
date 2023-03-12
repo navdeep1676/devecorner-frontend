@@ -34,7 +34,7 @@ export const CustomModal = (props) => {
         }}
       />
       {modalBody ? modalBody : ""}
-      <div className="text-right mt-4">
+      <div className="mx-auto mt-4">
         <CustomButton
           className={"button d-inline-block py-2 px-4"}
           title={secondaryBtnText ? secondaryBtnText : "Cancel"}
@@ -44,7 +44,7 @@ export const CustomModal = (props) => {
           <CustomButton
             title={primaryBtnText}
             onClick={handlePrimaryBtn}
-            className="button d-inline-block py-2 px-4"
+            className="button d-inline-block py-2 px-4 ms-4"
           />
         ) : (
           ""

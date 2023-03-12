@@ -12,7 +12,7 @@ export const CustomCard = (props) => {
               <Card.Body>
                 <Card.Title>{item.title.substr(0, 49) + "..."}</Card.Title>
                 <Card.Text>{item.desc.substr(0, 140) + "..."}</Card.Text>
-                <a className="button mt-4" href={item.link} target={"_blank"}>
+                <a className="button mt-4" href={item.url} target={"_blank"}>
                   Explore Now
                 </a>
               </Card.Body>

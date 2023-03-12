@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { GrView } from "react-icons/gr";
+import { CustomModal } from "./comman/CustomModal";
 const columns = [
   {
     title: "SNo",
@@ -28,9 +29,11 @@ const columns = [
   },
 ];
 export const VideoList = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const ctx = useContext(AppContext);
   const [videos, setVideos] = useState([]);
-
+  const [videoId, setVideoId] = useState("");
+  console.log(videoId);
   useEffect(() => {
     getVideos();
   }, []);
@@ -56,17 +59,51 @@ export const VideoList = () => {
           <Link to={"/admin/video/1"} className="mx-3">
             <FaRegEdit className="text-danger fs-3" />
           </Link>
-          <Button className="mx-3 border border-0">
+          <Button
+            onClick={() => {
+              setIsModalOpen(true);
+              setVideoId(videos[i]?._id);
+            }}
+            className="mx-3 border border-0"
+          >
             <AiFillDelete className="text-danger fs-3" />
           </Button>
         </>
       ),
     });
   }
+
+  const deleteVideo = async (id) => {
+    const result = await ctx.HttpDelete("video/" + id);
+    if (result.status === true) {
+      setIsModalOpen(false);
+      ctx.setModalData({
+        icon: "",
+        showModal: true,
+        titleText: "Delete Video",
+        messageText: result.msg,
+        secondaryBtnClassName: "btn-primary",
+        secondaryBtnText: "Done",
+        type: "success",
+      });
+      getVideos();
+    }
+  };
   return (
     <div>
       <h5>Videos</h5>
       <Table columns={columns} dataSource={data} />
+      <CustomModal
+        title="Delete Video"
+        isModalOpen={isModalOpen}
+        primaryBtnText={"Yes"}
+        secondaryBtnText={"No"}
+        secondaryBtnClassName={"btn-danger"}
+        handlePrimaryBtn={() => deleteVideo(videoId)}
+        handleSecondaryBtn={() => setIsModalOpen(false)}
+        modalBody={"Are You Sure You Want to Delete this Video?"}
+        setIsModalOpen={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
