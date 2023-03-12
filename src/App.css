@@ -7,6 +7,10 @@
   color: white;
   margin: 0px 15px;
 }
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
