@@ -4,6 +4,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import { AppContext } from "../../helpers/app-context";
 export const AddVideo = () => {
   const ctx = useContext(AppContext);
+  const [form] = Form.useForm();
   const onFinish = async (values) => {
     console.log("Success:", values.upload[0]);
     let formData = new FormData();
@@ -12,7 +13,28 @@ export const AddVideo = () => {
     formData.append("url", values.url);
     formData.append("image", values.upload[0].originFileObj);
     const result = await ctx.HttpPost("video/post", formData);
-    console.log(result);
+    if (result.status === true) {
+      ctx.setModalData({
+        icon: "",
+        showModal: true,
+        titleText: "Add Video",
+        messageText: result.msg,
+        secondaryBtnClassName: "btn-primary",
+        secondaryBtnText: "Done",
+        type: "success",
+      });
+      form.resetFields(); //reset form
+    } else {
+      ctx.setModalData({
+        icon: "",
+        showModal: true,
+        titleText: "Add Video",
+        messageText: result.msg,
+        secondaryBtnClassName: "btn-primary",
+        secondaryBtnText: "Done",
+        type: "danger",
+      });
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -28,6 +50,7 @@ export const AddVideo = () => {
     <div>
       <h5>Add Video</h5>
       <Form
+        form={form}
         name="basic"
         initialValues={{
           remember: true,
@@ -57,7 +80,7 @@ export const AddVideo = () => {
             },
           ]}
         >
-          <Input />
+          <Input maxLength={100} />
         </Form.Item>
 
         <Form.Item
