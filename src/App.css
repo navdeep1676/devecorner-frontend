@@ -76,6 +76,9 @@
   border-radius: 50%;
   background-color: rgba(245, 141, 28, 20);
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .carousel-inner {
   position: relative;
   width: 70%;
