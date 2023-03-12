@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
-
 import Carousel from "react-bootstrap/Carousel";
-import { videos, skills, reviews } from "../utils/Data";
+import { skills, reviews } from "../utils/Data";
 import { CustomCard } from "./comman/CustomCard";
 import { CustomSkillCard } from "./comman/CustomSkillCard";
+import { AppContext } from "../helpers/app-context";
 
 export const Home = () => {
+  const [videos, setVideos] = useState([]);
+  const ctx = useContext(AppContext);
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+  const getVideos = async () => {
+    const result = await ctx.HttpGet("video");
+    if (result.status === true) {
+      setVideos(result.data);
+    }
+  };
   return (
     <>
       <section className="home-wrapper-1">
@@ -86,7 +98,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="row mt-5">
-            <CustomCard data={videos} />;
+            <CustomCard data={videos} type="video" />;
           </div>
         </div>
       </section>

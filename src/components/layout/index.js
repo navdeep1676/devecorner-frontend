@@ -14,7 +14,7 @@ export const MainLayout = () => {
       key: "/videos",
       label: "Videos",
     },
-    {
+    /*    {
       key: "/projects",
       label: "Projects",
     },
@@ -33,7 +33,7 @@ export const MainLayout = () => {
     {
       key: "/notes",
       label: "Notes",
-    },
+    }, */
     {
       key: "/contact",
       label: "Contact Us",
@@ -85,7 +85,7 @@ export const MainLayout = () => {
                 );
               })}
             </Nav>
-            <Nav>
+            {/* <Nav>
               <NavLink
                 style={{ paddingTop: "3px", paddingBottom: "3px" }}
                 className="button  px-4"
@@ -100,7 +100,7 @@ export const MainLayout = () => {
               >
                 SignUp
               </NavLink>
-            </Nav>
+            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
