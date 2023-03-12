@@ -12,6 +12,7 @@ import { AdminLayout } from "./components/admin/layout";
 import { Dashboard } from "./components/admin/Dashboard";
 import { VideoList } from "./components/admin/VideoList";
 import { AddVideo } from "./components/admin/AddVideo";
+import { VideoDeatils } from "./components/VideoDeatils";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" index element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/videos" element={<Videos />} />
+            <Route path="/video/:slug" element={<VideoDeatils />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/problems" element={<Problems />} />

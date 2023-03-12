@@ -26,7 +26,7 @@ export const Videos = () => {
           </div>
         </div>
         <div className="row  pt-4">
-          <CustomCard data={videos} />;
+          <CustomCard data={videos} type="video" />;
         </div>
       </div>
     </section>
