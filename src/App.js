@@ -13,29 +13,33 @@ import { Dashboard } from "./components/admin/Dashboard";
 import { VideoList } from "./components/admin/VideoList";
 import { AddVideo } from "./components/admin/AddVideo";
 import { VideoDeatils } from "./components/VideoDeatils";
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
   return (
     <>
       <BrowserRouter basename="/">
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" index element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/videos" element={<Videos />} />
-            <Route path="/video/:slug" element={<VideoDeatils />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/notes" element={<Notes />} />
-            <Route path="/problems" element={<Problems />} />
-            <Route path="/tutorials" element={<NoData />} />
-            <Route path="/howto" element={<NoData />} />
-            <Route path="*" element={<NoData />} />
-          </Route>
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="video/video-list" element={<VideoList />} />
-            <Route path="video/add-video" element={<AddVideo />} />
-          </Route>
-        </Routes>
+        <HelmetProvider>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route path="/" index element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/videos" element={<Videos />} />
+              <Route path="/video/:slug" element={<VideoDeatils />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/notes" element={<Notes />} />
+              <Route path="/problems" element={<Problems />} />
+              <Route path="/tutorials" element={<NoData />} />
+              <Route path="/howto" element={<NoData />} />
+              <Route path="*" element={<NoData />} />
+            </Route>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="video/video-list" element={<VideoList />} />
+              <Route path="video/add-video" element={<AddVideo />} />
+            </Route>
+          </Routes>
+        </HelmetProvider>
       </BrowserRouter>
     </>
   );
