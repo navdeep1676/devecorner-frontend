@@ -6,6 +6,7 @@ import { CustomCard } from "./comman/CustomCard";
 import { CustomSkillCard } from "./comman/CustomSkillCard";
 import { AppContext } from "../helpers/app-context";
 import { Seo } from "./comman/Seo";
+
 export const Home = () => {
   const [videos, setVideos] = useState([]);
   const ctx = useContext(AppContext);
