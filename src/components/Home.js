@@ -5,7 +5,7 @@ import { skills, reviews } from "../utils/Data";
 import { CustomCard } from "./comman/CustomCard";
 import { CustomSkillCard } from "./comman/CustomSkillCard";
 import { AppContext } from "../helpers/app-context";
-
+import { Seo } from "./comman/Seo";
 export const Home = () => {
   const [videos, setVideos] = useState([]);
   const ctx = useContext(AppContext);
@@ -25,6 +25,13 @@ export const Home = () => {
   };
   return (
     <>
+      <Seo
+        title={"Developer's Corner"}
+        kw="developers corner ,developers corner, coding , programming, tutprials,videos,mern stack, mern ecommerce project,react js ,node js"
+        desc={
+          "Developer's corner is an educational website where you will lot of premium content related to web development. It's for beginners, intermediates and for experts also. The All in one solution for developers. Let's learn together."
+        }
+      />
       <section className="home-wrapper-1">
         <div className="container-xxl">
           <div className="row align-items-center">
